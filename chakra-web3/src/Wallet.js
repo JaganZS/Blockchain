@@ -66,8 +66,8 @@ const WalletCard = () => {
     window.ethereum.on('chainChanged', chainChangedHandler);
     const {colorMode, toggleColorMode }=useColorMode();
     return (
-        <Flex direction={"column"} width={"100%"}>
-            <Flex justifyContent={"flex-end"}>
+        <Flex direction={"column"} width={"100%"} >
+            <Flex justifyContent={"flex-end"} marginRight={"-390px"} marginTop="-100px"> 
                     <Button onClick={connectWalletHandler} 
                             size='md'
                             height='40px'
@@ -118,12 +118,12 @@ const WalletCard = () => {
 <Box>
 <Text as='i' fontSize={'md'}>
 Account Address: </Text> </Box>
-<Box bg='green.200' w='80%' p={4} color='black'> <Text fontSize={'larger'}> {defaultAccount} </Text>
+<Box bg='green.200' w='100%' p={4} color='black'> <Text fontSize={'larger'}> {defaultAccount} </Text>
 </Box>
 <Box>
     <Text as='i' fontSize={'md'}>
 Balance: </Text> </Box> 
-<Box bg='green.200' w='80%' p={4} color='black'> <Text fontSize={'larger'}> {userBalance} </Text>
+<Box bg='green.200' w='100%' p={4} color='black'> <Text fontSize={'larger'}> {userBalance} </Text>
 </Box>
         
         {errorMessage}

@@ -16,6 +16,7 @@ import {
   //,Circle
 } from '@chakra-ui/react';
 import {
+  Flex,
   Menu,
   MenuButton,
   MenuList,
@@ -89,16 +90,16 @@ export default function App() {
     await changeNetwork({ networkName, setError });
   };
   return (
-    <div>
+    <Flex direction={"column"}>
+      {/* <Flex>ssss</Flex> */}
+       <Flex direcion={"row"} justifyContent={"right"} marginTop={'117px'}> 
       {/* <Box boxSize='sm'>
   <Image src={'Image'} alt='BG Image' /> */}
-   
-      <VStack>
-    
-      
+
+
+  <Flex direction={"column"}  alignItems={"center"}> 
     <WalletCard />
-   
-    {/* <h1 className="text-xl font-semibold text-gray-700 text-center"> */}
+    <div>
     <Menu>
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
     Switch Chains
@@ -108,9 +109,25 @@ export default function App() {
     <MenuItem onClick={() => handleNetworkSwitch("bsc")}> BSC </MenuItem>
   </MenuList>
 </Menu>
+    </div>
+
+  </Flex>
+
+
+  <div>
+ 
     
 
 <TransferToken />
+  </div>
+   
+     
+    
+      
+   
+   
+    {/* <h1 className="text-xl font-semibold text-gray-700 text-center"> */}
+   
           {/* Switch Chains
         </h1>
         <div className="mt-4">
@@ -137,8 +154,11 @@ export default function App() {
           <ErrorMessage message={error} />
         </div> */}
            
-      </VStack>
+      
       {/* </Box> */}
-    </div>
+    </Flex>
+
+    </Flex>
+   
   );
 }

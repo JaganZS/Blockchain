@@ -57,24 +57,24 @@ export default function TransferToken() {
 
 <Flex direction={"column"} width={"100%"} justifyContent={"flex-end"}>
             {/* </Flex><Flex justifyContent={"flex-end"}> */}
-      <Container maxW='md' alignSelf={'flex-end'}>
+      <Container maxW='md' alignSelf={'flex-end'} marginTop={'15px'}>
           <Heading>
           Transfer ETH Payment
           </Heading>
           <GridItem colSpan={1}>
               <FormControl>
                   <FormLabel> Sender Address</FormLabel>
-                  <Input placeholder="Ox.. "/>
+                  <Input placeholder="Ox.. " bg='gray.200'/>
             </FormControl>
             </GridItem>
             <GridItem colSpan={1}>
               <FormControl>
                   <FormLabel> Amount in ETH</FormLabel>
-                  <Input placeholder="$32.00 "/>
+                  <Input placeholder="$32.00 " bg='gray.200'/>
             </FormControl>
             </GridItem>
-            <GridItem colSpan={1}>
-                <Button onClick={handleSubmit} size='lg' w='full'>
+            <GridItem colSpan={1} >
+                <Button onClick={handleSubmit} size='lg' w='full' bg='blue.200'>
                     Send
                 </Button>
             </GridItem>
