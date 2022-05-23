@@ -1,15 +1,26 @@
 import React, {useState} from 'react'
 import {ethers} from 'ethers';
+import { FaSun,FaMoon } from 'react-icons/fa';
+//import {PhoneIcon} from '@chakra-ui/icon'
 import {
-    ChakraProvider,Box,Text,Link,VStack,Code,Grid,theme,Container,Heading,Button, ButtonGroup,
-    Stack
+    Text,
+    Heading,
+    Button,
+    Flex,
+    // ButtonGroup,
+    Stack,
+    VStack,
+    IconButton,
+    Container,Box,useColorMode  
   } from '@chakra-ui/react';
+  import ChevronDownIcon from '@chakra-ui/icon'
+
 
 const WalletCard = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [defaultAccount, setDefaultAccount] = useState(null);
     const [userBalance, setUserBalance] = useState(null);
-    const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+    const [connButtonText, setConnButtonText] = useState('Connect to Wallet');
     const [chainId, setChainID] = useState(null);
     const CHAINIDS = {
         1: "Ethereum Main Network",
@@ -53,24 +64,72 @@ const WalletCard = () => {
     }
     window.ethereum.on('accountsChanged', accountChangedHandler);
     window.ethereum.on('chainChanged', chainChangedHandler);
+    const {colorMode, toggleColorMode }=useColorMode();
     return (
-        <div className='walletCard'>
-            <Stack spacing={6}>
-        <Heading> {"Connection to MetaMask wallet"} </Heading>
+        <Flex direction={"column"} width={"100%"}>
+            <Flex justifyContent={"flex-end"}>
+                    <Button onClick={connectWalletHandler} 
+                            size='md'
+                            height='40px'
+                            width='200px'
+                            border='2px'
+                            borderColor='green.500'
+                            colorScheme='teal'
+       
+        //marginRight={900}
+        leftIcon={<ChevronDownIcon />}>
+{connButtonText}</Button>
+<IconButton icon={colorMode==='light' ? <FaSun /> : <FaMoon />} 
+      isRound='true' 
+      size="md" 
+      alignSelf="flex-end"
+      float={'right'}
+      onClick={toggleColorMode}
+
+      />
+       </Flex>
+
+<Container maxW='2xl'>
+        <Heading mb='8' 
+        fontWeight={'extrabold'} 
+        fontSize='4xl'
+        size='lg'
+        bgGradient='linear(to-r,orange.500, orange.300, blue.400)'
+        //bgColor={'green.500'} 
+        bgClip={'text'}> {"Connection to MetaMask Wallet"} </Heading>
         <div className='walletConnection'>
-        <Heading> Chain Name: {getCurrentChainID(chainId)}
+        <Heading mb='6' 
+        fontWeight={'semibold'} 
+        size='lg' 
+        bgColor='teal.400'
+        bgClip={'text'}> Chain Name: {getCurrentChainID(chainId)}
         {connectWalletHandler()}</Heading>
         </div>
-        <Button onClick={connectWalletHandler} colorScheme='teal' size='lg'>{connButtonText}</Button>
-        <div className='accountDisplay'>
-            <h3> Account Address: - {defaultAccount}</h3>
-        </div>
-        <div className='balanceDisplay'>
-            <h3> Balance: {userBalance}</h3>
-        </div>
-        </Stack>
+
+        {/* <Button onClick={connectWalletHandler} 
+        size='md'
+        height='48px'
+        width='250px'
+        border='2px'
+        borderColor='green.500' colorScheme='teal' leftIcon={<ChevronDownIcon />}>
+{connButtonText}</Button> */}
+
+{/* <Box > //bg='green.200' w='100%' p={4} color='white'> */}
+<Box>
+<Text as='i' fontSize={'md'}>
+Account Address: </Text> </Box>
+<Box bg='green.200' w='80%' p={4} color='black'> <Text fontSize={'larger'}> {defaultAccount} </Text>
+</Box>
+<Box>
+    <Text as='i' fontSize={'md'}>
+Balance: </Text> </Box> 
+<Box bg='green.200' w='80%' p={4} color='black'> <Text fontSize={'larger'}> {userBalance} </Text>
+</Box>
+        
         {errorMessage}
-        </div>
+             
+        </Container>
+        </Flex>
     )
 }
 export default WalletCard;

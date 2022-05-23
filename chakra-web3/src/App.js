@@ -1,6 +1,33 @@
-import { useState, useEffect } from "react";
+import React,{ useState} from "react";
 import './App.css';
 import WalletCard from './Wallet';
+import TransferToken from './transfer';
+import {
+  //ChakraProvider,
+  Box,
+  // Text,
+  // //Link,VStack,Code,Grid,theme,Container,
+  // Heading,
+  Button,
+  // ButtonGroup,
+  // Stack,
+  VStack,
+  IconButton
+  //,Circle
+} from '@chakra-ui/react';
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from '@chakra-ui/react';
+
+import ChevronDownIcon from '@chakra-ui/icon';
+//import Image from 'Desktop/Crypto-BG-Pic.png'
 //import ErrorMessage from './ErrorMessage';
 const networks = {
   polygon: {
@@ -62,26 +89,56 @@ export default function App() {
     await changeNetwork({ networkName, setError });
   };
   return (
-    <div className="App">
-    <WalletCard/>
-    <h1 className="text-xl font-semibold text-gray-700 text-center">
-          Force MetaMask network
+    <div>
+      {/* <Box boxSize='sm'>
+  <Image src={'Image'} alt='BG Image' /> */}
+   
+      <VStack>
+    
+      
+    <WalletCard />
+   
+    {/* <h1 className="text-xl font-semibold text-gray-700 text-center"> */}
+    <Menu>
+  <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+    Switch Chains
+  </MenuButton>
+  <MenuList>
+    <MenuItem onClick={() => handleNetworkSwitch("polygon")}> Polygon </MenuItem>
+    <MenuItem onClick={() => handleNetworkSwitch("bsc")}> BSC </MenuItem>
+  </MenuList>
+</Menu>
+    
+
+<TransferToken />
+          {/* Switch Chains
         </h1>
         <div className="mt-4">
-          <button
+          <Button size='md'
+        height='30px'
+        width='140px'
+        border='2px'
+        borderColor='green.500' colorScheme='teal'
             onClick={() => handleNetworkSwitch("polygon")}
             className="mt-2 mb-2 btn btn-primary submit-button focus:ring focus:outline-none w-full"
           >
             Switch to Polygon
-          </button>
-          <button
+          </Button>
+          <Button size='md'
+        height='30px'
+        width='120px'
+        border='2px'
+        borderColor='green.500' colorScheme='teal'
             onClick={() => handleNetworkSwitch("bsc")}
-            className="mt-2 mb-2 bg-warning border-warning btn submit-button focus:ring focus:outline-none w-full"
+            
           >
             Switch to BSC
-          </button>
-          {/* <ErrorMessage message={error} /> */}
-        </div>
+          </Button>
+          <ErrorMessage message={error} />
+        </div> */}
+           
+      </VStack>
+      {/* </Box> */}
     </div>
   );
 }
