@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
+import WalletApp from './WalletApp'
 import {
   IconButton,
+  Image,
   Box,
   CloseButton,
   Flex,
@@ -12,7 +14,7 @@ import {
   Text,
   useDisclosure,
   BoxProps,
-  FlexProps,Button,Grid,Menu,MenuButton,MenuItem,MenuList,GridItem
+  FlexProps,Grid,GridItem,Menu,MenuButton,MenuItem,MenuList,Button,
 } from '@chakra-ui/react';
 import {
   FiHome,
@@ -20,11 +22,9 @@ import {
   FiCompass,
   FiStar,
   FiSettings,
-  FiMenu,
-  FiBriefcase,
-  FiBookmark,
+  FiMenu,FiBriefcase
 } from 'react-icons/fi';
-import { IconType } from 'react-icons';
+import { IconType} from 'react-icons';
 import { SearchIcon,ChevronDownIcon } from '@chakra-ui/icons'
 import { ReactText } from 'react';
 
@@ -32,7 +32,7 @@ interface LinkItemProps {
   name: string;
   icon: IconType;
 }
-const LinkItems: Array<LinkItemProps> = [
+const LinkItems = [
   { name: 'Overview', icon: FiHome },
   { name: 'My Assets', icon: FiBriefcase},
   { name: 'Exchange', icon: FiBriefcase},
@@ -45,7 +45,7 @@ const LinkItems: Array<LinkItemProps> = [
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')} w="240px">
+    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')} width={'240px'}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
@@ -84,57 +84,15 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       w={{ base: 'full', md: 60 }}
       pos="fixed"
       h="full"
-      //marginTop={"30px"}
       {...rest}>
-      <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Flex >
-        {/* <Menu >
-          <MenuButton  
-            RightIcon={<ChevronDownIcon />}>
-              Ethereum
-          </MenuButton>
-          <MenuList >
-            <MenuItem>BSC</MenuItem>
-            <MenuItem>Polygon</MenuItem>
-          </MenuList>
-        </Menu> */}
-
-        <Grid templateColumns='repeat(2, 1fr)' gap={3}>
-        <GridItem colSpan={2}>
-        <Menu >
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-              Ethereum
-          </MenuButton>
-          <MenuList >
-            <MenuItem>BSC</MenuItem>
-            <MenuItem>Polygon</MenuItem>
-          </MenuList>
-        </Menu>
-        </GridItem>
-          <GridItem rowSpan={2}>
-          <Button size="xs">
-              Send
-          </Button>
-          </GridItem>
-          {/* <Button size="xs">
-              Send
-          </Button> */}
-          <GridItem rowSpan={2}>
-          <Button size="xs">
-              Receive
-          </Button>
-          </GridItem>
-          {/* <Button size="xs">
-              Receive
-          </Button> */}
-        </Grid>
-        </Flex>
-        {/* <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text> */}
-     
-        <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-      </Flex>
+    <Image 
+  boxSize='100px'
+  w="189px"
+  h="59px"
+  objectFit='cover'
+  margin={"10px 20px"}
+  src='https://www.kindpng.com/picc/m/298-2985702_nissan-frontier-logo-vector-hd-png-download.png' alt='Dan Abramov' />
+      <WalletApp />
       {LinkItems.map((link) => (
         <NavItem key={link.name} icon={link.icon} fontSize="10px">
           {link.name}
@@ -201,10 +159,9 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         icon={<FiMenu />}
       />
 
-      {/* <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
+      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
         Logo
-      </Text> */}
+      </Text>
     </Flex>
   );
 };
-// export default SimpleSidebar;
