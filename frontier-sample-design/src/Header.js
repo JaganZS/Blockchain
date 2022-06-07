@@ -18,19 +18,29 @@ function Headers() {
               {/* <Text fontSize={"4xl"}> Overview </Text> */}
         </Box>
             <Flex>
-              <Flex marginLeft={"400px"} border={"1px"} borderRadius={"5px"} h="27px">
+              <Flex marginLeft={"400px"} border={"1px"} borderRadius={"5px"} h="27px" borderColor={'gray.200'}
+              bgColor='white'>
                 <Input w="250px"
                   size='xs'
                   placeholder='Search for token,pools or vaults' 
                   borderColor={"white"}
                 />
-                <Icon as={SearchIcon} w="20px" h="15px" alignSelf={"center"}/>
+                <Icon  as={SearchIcon} w="20px" h="12px" alignSelf={"center"}/>
               </Flex>
               <Menu >
-                <MenuButton marginLeft={"10px"} w="100px" h="30px" as={Button} bgColor="white" border={"1px"} borderColor={"gray"}
+                <MenuButton 
+                marginLeft={"10px"} 
+                w="100px" h="30px" as={Button} 
+                bgColor="white" 
+                border={"1px"} 
+                borderColor={"gray.200"}
     
-                rightIcon={<TriangleDownIcon />}>
-                  <Text fontSize="xs"> USD </Text>
+                rightIcon={<TriangleDownIcon boxSize={'10px'}/>}>
+                <Box boxSize={'8px'} marginLeft='-7px' marginBottom={'-9px'}>
+                <img src="https://www.kindpng.com/picc/m/130-1303882_dollar-icon-png-dollar-icon-no-background-transparent.png" alt="Dollar" />
+                </Box>
+                
+              <Text fontSize='12px'> USD </Text>
                 </MenuButton>
               <MenuList >
                 <MenuItem>RS</MenuItem>

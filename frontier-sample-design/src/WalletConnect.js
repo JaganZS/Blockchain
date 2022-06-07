@@ -94,17 +94,17 @@ const WalletCard = () => {
 <img src='https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg' width={"30px"}
 height={"30px"}/>
 <div style={{'width':'67%'}}>
-    <Text fontSize={'xs'}> {defaultAccount} </Text> 
-    <Text fontSize={'xs'}> {userBalance} </Text>
+    <Text fontSize={'xs'}> **** **** {defaultAccount}</Text> 
+    <Text fontSize={'xs'}> $ {userBalance} </Text>
 
 </div>
 <Button onClick={connectWalletHandler} 
         size='xs'
-        height='20px'
-        width='20px'
+        height='15px'
+        width='15px'
         margin={"5px"}
         
-        rightIcon={<TriangleDownIcon color={"#cc703c"}/>}>
+        rightIcon={<TriangleDownIcon color={"#cc703c"} />}>
         {/* rightIcon={<ChevronDownIcon />}>  */}
         {/* <Text fontSize='xs'> Click to connect </Text>  */}
 </Button>

@@ -10,6 +10,7 @@ import {
     // Heading,
     Button,
     Text,
+    Image,
     // ButtonGroup,
     // Stack,
     VStack,
@@ -20,7 +21,7 @@ import {
     Flex,
     Menu,
     MenuButton,
-    MenuList,
+    MenuList,Icon,
     MenuItem, Grid, GridItem,
     MenuItemOption,
     MenuGroup,
@@ -42,6 +43,14 @@ import {
     PopoverArrow,
     PopoverCloseButton,
 } from "@chakra-ui/react";
+const CircleIcon = (props) => (
+    <Icon viewBox='0 0 200 200' {...props}>
+      <path
+        fill='currentColor'
+        d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
+      />
+    </Icon>
+  )
 const networks = {
     polygon: {
         chainId: `0x${Number(137).toString(16)}`,
@@ -106,8 +115,21 @@ export default function App() {
             <Flex><WalletCard /></Flex>
             <Flex>
             <Menu>
-                                    <MenuButton as={Button} size='xs' rightIcon={<TriangleDownIcon />} margin={"10px 0px"} width={'100%'}>
-                                        <Text fontSize='xs' width={"100%"}> Ethereum </Text>
+                                    <MenuButton as={Button} 
+                                    size='xs' 
+                                    rightIcon={<TriangleDownIcon boxSize={'10px'}/>} 
+                                    margin={"10px 0px"} 
+                                    width={'100%'}
+                                    border='1px'
+                                    borderColor='gray.200'
+                                    borderStyle={'solid'}
+                                    bgColor={'white'}>
+                                    <Flex>
+                                    <Box boxSize='15px' marginLeft={'15px'} marginBottom='-14px'>
+                                        <Image src='https://assets.coingecko.com/coins/images/279/thumb/ethereum.png?1595348880' alt='Dan Abramov' />
+                                    </Box>
+                                    </Flex>
+                                        <Text fontSize='x-small' width={"100%"}> Ethereum </Text>
                                     </MenuButton>
                                     <MenuList>
                                         <MenuItem onClick={() => handleNetworkSwitch("polygon")}>
@@ -117,13 +139,15 @@ export default function App() {
                                     </MenuList>
                                 </Menu>
             </Flex>
-            <Flex justifyContent={'space-between'}>
+            <Flex justifyContent={'space-between'} marginBottom='30px'>
             <Popover>
                                     <PopoverTrigger>
                                         <Button
                                             size="xs"
                                             bgColor={"#cc703c"}
-                                            leftIcon={<ArrowUpIcon />}>
+                                            position='relative'
+                                            leftIcon={<ArrowUpIcon position='absolute' left='8px' bottom='6px' color={'#cc703c'}/>} >
+                                            <CircleIcon boxSize={4} color='white' margin='0px 10px 0px -10px'/>
                                             <Text color={"white"}> Send </Text>
                                         </Button>
                                     </PopoverTrigger>
@@ -134,12 +158,11 @@ export default function App() {
                                         <PopoverBody> <TransferToken /></PopoverBody>
                                     </PopoverContent>
                                 </Popover>
-                                <Button size="xs"
+                                <Button size="xs" borderColor={'#cc703c'} 
                                     bgColor={"white"}
                                     variant={"outline"}
-                                    leftIcon={<ArrowDownIcon
-                                        color="#cc703c"
-                                    />}>
+                                    leftIcon={<ArrowDownIcon position='absolute' left='8px' bottom='6px' color={'white'}/>} >
+                                    <CircleIcon boxSize={4} color='#cc703c' margin='0px 10px 0px -10px'/>
                                     <Text color={"#cc703c"}> Receive </Text>
                                 </Button>
                            

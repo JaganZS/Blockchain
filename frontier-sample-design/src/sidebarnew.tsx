@@ -45,7 +45,7 @@ const LinkItems = [
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')} width={'240px'}>
+    <Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')} width={'217px'}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
@@ -79,12 +79,16 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
-      borderRight="1px"
-      borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-      w={{ base: 'full', md: 60 }}
+      borderRight="2px"
+      borderRightColor='#836cff'
+  
+      //{useColorModeValue('gray.200', 'gray.700')}
+      //w={{ base: 'full', md: 60 }}
+      w='15%'
       pos="fixed"
       h="full"
-      {...rest}>
+      {...rest}
+      >
     <Image 
   boxSize='100px'
   w="189px"
@@ -94,7 +98,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   src='https://www.kindpng.com/picc/m/298-2985702_nissan-frontier-logo-vector-hd-png-download.png' alt='Dan Abramov' />
       <WalletApp />
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon} fontSize="10px">
+        <NavItem key={link.name} icon={link.icon} fontSize="12px">
           {link.name}
         </NavItem>
       ))}
@@ -111,14 +115,14 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
     <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex
         align="center"
-        p="4"
+        p="3"
         mx="4"
         borderRadius="lg"
         role="group"
         cursor="pointer"
         _hover={{
-          bg: 'cyan.400',
-          color: 'white',
+          bg: '#f9f1eb',
+          color: '#cc703c',
         }}
         {...rest}>
         {icon && (
@@ -126,7 +130,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
             mr="4"
             fontSize="16"
             _groupHover={{
-              color: 'white',
+              color: '#cc703c',
             }}
             as={icon}
           />
