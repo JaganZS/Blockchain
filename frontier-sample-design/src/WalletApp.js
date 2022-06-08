@@ -43,6 +43,25 @@ import {
     PopoverArrow,
     PopoverCloseButton,
 } from "@chakra-ui/react";
+
+// import {getCurrentChainID} from '/.WalletConnect.js';
+// const [chainId, setChainID] = useState(null);
+// const CHAINIDS = {
+//     1: "Ethereum Main Network",
+//     3: "Ropsten Test Network",
+//     4: "Rinkeby Test Network",
+//     5: "Goerli Test Network",
+//     42: "Kovan Test Network",
+//     56: "Binance smart chain Mainnet",
+//     43114 : "Avalanche",
+//     137 : "Polygon"
+//   };
+//   const getCurrentChainID = (chainId) => {
+//     return CHAINIDS[chainId];
+// }
+// const chainChangedHandler = () => { 
+//      window.location.reload();
+// }
 const CircleIcon = (props) => (
     <Icon viewBox='0 0 200 200' {...props}>
       <path
