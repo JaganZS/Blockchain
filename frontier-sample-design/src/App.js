@@ -15,18 +15,13 @@ import Chart from './Chart';
 import DoughnutChart from './Doughchart';
 import Tokenbal from './Tokenbal';
 
-//import WalletCard from './WalletCard';
-
-// import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
     <Flex className="App" flexBasis={"fit-content"}>
-      {/* <WalletCard /> */}
-      {/* <SimpleSidebar /> */}
       <SidebarWithHeader />
 
-      <Flex direction={'column'} width='100%'>
+      <Flex direction={'column'} width='85%'>
 
         <Headers />
         <Flex margin={'17px'}>
@@ -44,27 +39,6 @@ function App() {
 
 
     </Flex>
-
-    //   <div className='App1' style={{'display':'flex','marginTop':'60px'}}>
-    //   <div style={{'width':'16%'}}></div>
-    //   <div style={{'width':'80%'}}>
-    //   <Grid templateColumns='50% 50%' gap={7} >
-    //   <GridItem > 
-    //   <SidebarWithHeader />
-    //   <Headers />
-    //     <DoughnutChart /> 
-    //   <Box>
-    // <Chart /> 
-    // </Box>
-    // </GridItem>
-    //   {/* <GridItem > <TokBal /> </GridItem> */}
-    // </Grid>
-
-    //   </div>
-
-
-
-    // </div>
 
   )
 }
