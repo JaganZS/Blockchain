@@ -8,7 +8,9 @@ import {SearchIcon} from "@chakra-ui/icons"
 
 // const provider = "https://mainnet.infura.io/v3/27af3e6f4d9d45e6ac1a6bf497a6e278";
 // const provider = "https://mainnet.infura.io/v3/70f77bb93e204c7e96a4a3df80767689";
-const provider ="https://mainnet.infura.io/v3/b373051775cd4c65a9fb9eeb34e16795";
+//https://mainnet.infura.io/v3/b373051775cd4c65a9fb9eeb34e16795
+
+const provider ="https://mainnet.infura.io/v3/63ac5682ffc84706acf547e053e900f7";
 
 const Web3Client = new Web3(new Web3.providers.HttpProvider(provider));
 const minABI = [
