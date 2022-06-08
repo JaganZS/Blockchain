@@ -1,3 +1,4 @@
+
 {
   "name": "frontier-sample-design",
   "version": "0.1.0",
@@ -11,12 +12,20 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/react-icons": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@react-icons/all-files": "^4.1.0",
     "ethers": "^5.6.8",
     "framer-motion": "^6.3.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "chart.js": "^3.8.0",
+    "jquery": "^3.6.0",
+    "react-chartjs-2": "^4.1.0",
+    "web3": "^1.7.3"
   },
   "scripts": {
     "start": "react-scripts start",
